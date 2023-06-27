@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>::contact::</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DJ6SCBGHR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2DJ6SCBGHR');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DJ6SCBGHR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2DJ6SCBGHR');
+    </script>
 </head>
 
 <body>
     <div>
-        <form>
+        <form onsubmit="return formsubmit(this)">
             <input type="email" name="email">
-        <button type="submit">SUbmit</button>
+            <button type="submit">SUbmit</button>
         </form>
     </div>
 </body>
+<script>
+    function formsubmit(x) {
+        gtag('event', 'generate_lead', {
+            'email': 'example@example.com',
+            'phone': '123-456-7890'
+        });
+
+
+        gtag('event', 'lead_submission', {
+            'email': 'example1@example.com',
+            'phone': '11123-456-7890'
+        });
+
+        setTimeout(()=>{
+            x.submit();
+        },1000)
+
+        return false;
+
+    }
+</script>
+
 </html>
